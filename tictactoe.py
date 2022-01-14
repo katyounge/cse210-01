@@ -1,13 +1,19 @@
+# a list of possible answers that would mean "yes"
 yeslist = ["yes", "yeah", "yep", "y", "sure", "ok", "okay", "absolutely"]
-# board_squares = ["1","2","3","4","5","6","7","8","9"]
+
 
 def main():
 
     print("Welcome to Kathryn's Tic Tac Toe")
 
+    # while loop so they can play multiple games if they want
     while True:
+
+        # resets the board for each round of the game
         board_squares = ["1","2","3","4","5","6","7","8","9"]
         winner = False
+
+        # asks the user if they want to play
         play_again = input('Would you like to start a game? ')
 
         if play_again.lower() in yeslist:
@@ -16,9 +22,10 @@ def main():
             print()
 
             
-
+            # while loop to let them take repeated turns
             while True:
 
+                # before they take a turn, checks to see if someone has won
                 winner = check_winner(board_squares)
                 
                 if winner == False:
@@ -26,12 +33,15 @@ def main():
                     print("X - It's your turn!")
                     print()
                 
+                    # draws the current board
                     draw_board(board_squares)
                     print()
 
+                    # places the x
                     place_xo("X", board_squares)
                     print()
 
+                    # checks again for a winner
                     winner = check_winner(board_squares)
 
                 
@@ -41,6 +51,7 @@ def main():
                         print("O - It's your turn!")
                         print()
 
+                        # places the O
                         place_xo("O", board_squares)
                         print()
 
@@ -62,7 +73,7 @@ def main():
 
 
 
-
+# function to draw the board each time
 def draw_board(squares_list):
     print(f" {squares_list[0]} | {squares_list[1]} | {squares_list[2]}")
     print("---+---+---")
@@ -70,6 +81,7 @@ def draw_board(squares_list):
     print("---+---+---")
     print(f" {squares_list[6]} | {squares_list[7]} | {squares_list[8]}")
 
+# fucntion to place an "x" or an "o"
 def place_xo(team, squares_list):
     
     while True:
@@ -89,6 +101,7 @@ def place_xo(team, squares_list):
     
     return squares_list
 
+# function to check for a winner and deliver the news if it's a tie
 def check_winner(squares_list):
     winner = False
     if squares_list[0] == squares_list[3] and squares_list[0] == squares_list[6]:
@@ -131,6 +144,8 @@ def check_winner(squares_list):
 
     return winner
 
+# function to deliver the news with a specific team name
+# if there is a win - currently only used inside the check_winner function
 def declare_winner(team):
     print(f'You win, Team {team}!')
 
