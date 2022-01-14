@@ -76,13 +76,16 @@ def place_xo(team, squares_list):
 
         position = int(input(f"In which numerical position would you like to place an '{team}'? "))
             
-        if squares_list[position-1].lower() != "x" and squares_list[position-1].lower() != "o":
+        if position > 9 or position < 1:
+            print('That is not a valid option.')
+        
+        elif squares_list[position-1].lower() != "x" and squares_list[position-1].lower() != "o":
             squares_list[position - 1] = team
             draw_board(squares_list)
             break
 
         else:
-                print("That position is already taken. Please try again.")    
+            print("That position is already taken. Please try again.")    
     
     return squares_list
 
