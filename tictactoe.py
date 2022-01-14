@@ -1,3 +1,7 @@
+# Title - Tic-Tac-Toe, W02 Prove: Developer - Solo Code Submission 
+# Class - CSE 210 
+# Developer - Kathryn Thompson
+
 # a list of possible answers that would mean "yes"
 yeslist = ["yes", "yeah", "yep", "y", "sure", "ok", "okay", "absolutely"]
 
